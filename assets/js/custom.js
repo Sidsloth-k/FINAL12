@@ -2,6 +2,35 @@
 	
 	"use strict";
 
+  function onScroll(event) {
+    var scrollPos = $(document).scrollTop();
+    $('.nav a').each(function() {
+      var currLink = $(this);
+      var refElement = $(currLink.attr("href"));
+
+      if (refElement.length) {
+        if (
+          refElement.position().top <= scrollPos &&
+          refElement.position().top + refElement.outerHeight() > scrollPos
+        ) {
+          $('.nav ul li a').removeClass("active");
+          currLink.addClass("active");
+        } else {
+          currLink.removeClass("active");
+        }
+      }
+    });
+  }
+
+  $(document).on("scroll", onScroll);
+
+  $(document).ready(function() {
+    // User agent information using navigator.userAgentData
+    if (navigator.userAgentData) {
+      const userAgent = navigator.userAgentData.ua;
+      console.log('User Agent:', userAgent);
+    }
+    
 	// Header Type = Fixed
   $(window).scroll(function() {
     var scroll = $(window).scrollTop();
@@ -42,21 +71,6 @@
 		closeButton: ".modal_close"
 });
 
-$(function() {
-		// Calling Login Form
-		$("#login_form").click(function() {
-				$(".social_login").hide();
-				$(".user_login").show();
-				return false;
-		});
-
-		// Calling Register Form
-		$("#register_form").click(function() {
-				$(".social_login").hide();
-				$(".user_register").show();
-				$(".header_title").text('Register');
-				return false;
-		});
 
 		// Going back to Social Forms
 		$(".back_btn").click(function() {
@@ -139,21 +153,30 @@ $(function() {
           });
       });
   });
-
-  function onScroll(event){
-      var scrollPos = $(document).scrollTop();
-      $('.nav a').each(function () {
-          var currLink = $(this);
-          var refElement = $(currLink.attr("href"));
-          if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-              $('.nav ul li a').removeClass("active");
-              currLink.addClass("active");
-          }
-          else{
-              currLink.removeClass("active");
-          }
-      });
+  function onScroll(event) {
+    var scrollPos = $(document).scrollTop();
+    $('.nav a').each(function() {
+      var currLink = $(this);
+      var refElement = $(currLink.attr("href"));
+      
+      // Check if refElement exists before accessing its properties
+      if (refElement.length) {
+        if (
+          refElement.position().top <= scrollPos &&
+          refElement.position().top + refElement.outerHeight() > scrollPos
+        ) {
+          $('.nav ul li a').removeClass("active");
+          currLink.addClass("active");
+        } else {
+          currLink.removeClass("active");
+        }
+      }
+    });
   }
+  
+  // Attach the onScroll function to the scroll event
+  $(document).on("scroll", onScroll);
+  
 
 
   // Acc
