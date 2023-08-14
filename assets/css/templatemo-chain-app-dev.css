@@ -1189,20 +1189,75 @@ footer p a:hover {
       margin: 30px auto 0px auto;
       text-align: center;
  }
-  .features-item {
-      margin-bottom: 45px;
+ 
+ /* Adjust styles for the gallery on smaller screens */
+ #wrapper {
+  perspective: none;
+  -webkit-perspective: none;
+  perspective-origin: none;
+  transform:none;
+  width: 100%;
+}
+#image {
+ 
+  height: auto;
+  width: 100%;
+}
+#wrapper .image {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  height: auto;
+  width: 100%;
+  margin: 1rem;
+  box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+@keyframes spin {
+  from {
+      transform: none;
  }
-  .last-features-item, .last-skill-item {
-      margin-bottom: 0px !important;
+  to {
+      transform: none;
  }
-  .skill-item {
-      margin-bottom: 30px;
- }
-  .about-left-image img {
-      margin-right: 0px;
-      margin-bottom: 45px;
-     ;
- }
+}
+.image img {
+  display: block;
+  flex: content;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+.gallery-button {
+  text-align: center;
+  margin-top: 100px;
+}
+#image > .i1, #image > .i2, #image > .i3, #image > .i4 , #image > .i5, #image > .i6 , #image > .i7, #image > .i8 {
+  transform: none;
+  perspective: none;
+  -webkit-perspective: none;
+  perspective-origin: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.gallery-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 50px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.gallery-button button:hover {
+  transform: scale(1.1);
+  background-color: #ffa700;
+  color: #000;
+}
   .services .naccs .menu div {
       font-size: 15px;
       font-weight: 500;
@@ -1214,25 +1269,13 @@ footer p a:hover {
   .service-item .icon {
       margin: 0 auto 30px auto;
  }
-  .blog-posts {
-      margin-left: 0px;
-      margin-top: 30px;
- }
   .post-item {
       margin-bottom: 70px;
  }
   .pricing-item-regular {
       margin-bottom: 30px;
  }
-  .our-portfolio .owl-nav {
-      display: none !important;
- }
-  .contact-info {
-      margin-top: 60px;
- }
-  form#contact {
-      padding: 45px;
- }
+  
 }
 
 
